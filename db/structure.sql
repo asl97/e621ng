@@ -1685,7 +1685,8 @@ CREATE TABLE public.posts (
     bg_color character varying,
     generated_samples character varying[],
     duration numeric,
-    is_comment_disabled boolean DEFAULT false NOT NULL
+    is_comment_disabled boolean DEFAULT false NOT NULL,
+    thumbnail character varying
 );
 
 
@@ -2135,7 +2136,8 @@ CREATE TABLE public.uploads (
     file_size integer,
     image_width integer,
     image_height integer,
-    description text DEFAULT ''::text NOT NULL
+    description text DEFAULT ''::text NOT NULL,
+    thumbnail character varying
 );
 
 
@@ -4676,6 +4678,7 @@ ALTER TABLE ONLY public.avoid_postings
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240830152047'),
 ('20240726170041'),
 ('20240709134926'),
 ('20240706061122'),
